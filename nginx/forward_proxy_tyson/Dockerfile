@@ -1,8 +1,7 @@
-#@# vim: set filetype=dockerfile:
 FROM alpine:3.14
 
 ENV NGINX_VERSION 1.19.6
-
+ENV NGINX_PORT 8080
 ####
 ## dependent packages for docker build
 ####
@@ -37,8 +36,8 @@ WORKDIR /
 
 COPY ./nginx.conf /usr/local/nginx/conf/nginx.conf
 
-EXPOSE 80
+EXPOSE ${NGINX_PORT}
 
-STOPSIGNAL SIGTERM
+STOPSIGNAL SIGQUIT
 
-CMD [ "nginx", "-g", "daemon off;" ]
+CMD ["nginx", "-g", "daemon off;"]
