@@ -3,6 +3,7 @@
 ## Generate the ssl certificate
 
 ```bash
+cd cert
 ./self-signed-ssl
 ```
 
